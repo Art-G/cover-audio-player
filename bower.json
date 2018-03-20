@@ -1,5 +1,5 @@
 {
-  "name": "icon-toggle",
+  "name": "audio-player",
   "version": "0.0.0",
   "homepage": "https://github.com/Polymer/element-tutorial",
   "license": "MIT",
@@ -12,7 +12,6 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
-    "iron-icon": "PolymerElements/iron-icon#^2.0.0",
-    "iron-icons": "PolymerElements/iron-icons#^2.0.0"
+    "components-font-awesome": "~5.0.6"
   }
 }
