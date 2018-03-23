@@ -9,6 +9,7 @@
             /* shadow DOM styles go here */
             :host {
                 display: inline-block;
+                margin: 1em 2%;
             }
             :host .image.animate {
                 -webkit-transform: scale(1.1);
@@ -18,20 +19,20 @@
             .container {
                 position: relative;
                 width: 150px;
-                height: 150px;
                 overflow: hidden;
-                -moz-box-shadow:    0px 0px 3px 1px #ccc;
-                -webkit-box-shadow: 0px 0px 3px 1px #ccc;
-                box-shadow:         0px 0px 3px 1px #ccc;
             }
 
             .image {
                 opacity: 1;
                 display: block;
                 width: 100%;
-                height: 100%;
+                height: 150px;
+                margin-bottom: .5em;
                 backface-visibility: hidden;
                 transition: all 2s;
+                -moz-box-shadow:    0px 0px 3px 1px #ccc;
+                -webkit-box-shadow: 0px 0px 3px 1px #ccc;
+                box-shadow:         0px 0px 3px 1px #ccc;
             }
 
             .middle {
@@ -134,12 +135,25 @@
                     transform: scale3d(1.2, 1.2, 1);
                 }
             }
+
+            p.legend {
+                width: 100%;
+                margin: 0;
+                color: rgb(100, 100, 100);
+                font-family: 'Nunito', sans-serif;
+            }
+
+            p.legend.title {
+                color: black;
+                font-weight: 600;
+                text-transform: uppercase;
+            }
         </style>
         <!-- shadow DOM goes here -->
         <div class="container">
-            <img src="[[src]]" alt="[[alt]]" class="image" id="cover" style="width:100%">
+            <img src="[[src]]" alt="[[alt]]" class="image cover" id="cover" style="width:100%">
             <!-- Audio HTML5 element -->
-            <audio id="audio" controls="false">
+            <audio id="audio" controls="false" hidden>
                 Votre navigateur ne prend pas en charge l'élément audio.
                 <source src="[[media]]" type="audio/wav">
             </audio>
@@ -148,7 +162,8 @@
                 <span class="cbutton__text">Play</span>
             </button>
         </div>
-    <script src="/cover/js/classie.js"></script>
+        <p class="legend title">[[title]]</p>
+        <p class="legend">[[artist]]</p>
     <script>
         (function() {
 
@@ -210,6 +225,12 @@
                         type: String
                     },
                     media: {
+                        type: String
+                    },
+                    title: {
+                        type: String
+                    },
+                    artist: {
                         type: String
                     },
                     play: {
